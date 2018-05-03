@@ -1,0 +1,187 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Business Casual - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/business-casual.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/checkbox.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body background="{% static 'image/bg.jpg'%}">
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
+      <span class="site-heading-lower">Business Casual</span>
+    </h1>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/about">About</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/result">Store</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-section clearfix">
+      <div class="container">
+        <div class="intro">
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'image/intronew.jpg' %}" alt="">
+          <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Fresh Coffee</span>
+              <span class="section-heading-lower">Worth Drinking</span>
+            </h2>
+            <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!
+            </p>
+            <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#">Visit Us Today!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      <div class="container" style="background-color:rgba(69,121,178, 0.9);padding-top: 5rem;padding-bottom: 5rem;">
+        <div class="row">
+          <div class="col-xl-8 mx-auto">
+            <div class="cta-inner text-left rounded" style="position: relative;padding: 3rem;margin: 0.5rem;background-color: rgba(255, 255, 255, 0.85);">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Dollar amount to invest in USD (Minimum is $5000 USD)</span>
+              </h2>
+
+                <input class="form-control" type="text" placeholder="Minimum is $5000 USD">
+
+
+
+
+
+
+{#                <div class="checkbox-div">#}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">#}
+{#                    <label class="form-check-label" for="defaultCheck1">#}
+{#                         Ethical Investing#}
+{#                    </label>#}
+{#                </div>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">#}
+{#                    <label class="form-check-label" for="defaultCheck2">#}
+{#                        Growth Investing#}
+{#                    </label>#}
+{#                </div>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">#}
+{#                    <label class="form-check-label" for="defaultCheck3">#}
+{#                        Index Investing#}
+{#                    </label>#}
+{#                </div>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">#}
+{#                    <label class="form-check-label" for="defaultCheck4">#}
+{#                        Quality Investing#}
+{#                    </label>#}
+{#                </div>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">#}
+{#                    <label class="form-check-label" for="defaultCheck5">#}
+{#                        Value Investing#}
+{#                    </label>#}
+{#                </div>#}
+{##}
+{#                </div>#}
+
+
+                <div class="funkyradio">
+                    <div class="funkyradio-primary">
+                        <input type="checkbox" name="checkbox" id="checkbox2"/>
+                        <label for="checkbox2">Ethical Investing</label>
+                    </div>
+                    <div class="funkyradio-success">
+                        <input type="checkbox" name="checkbox" id="checkbox3"/>
+                        <label for="checkbox3">Growth Investing</label>
+                    </div>
+                    <div class="funkyradio-danger">
+                        <input type="checkbox" name="checkbox" id="checkbox4"/>
+                        <label for="checkbox4">Index Investing</label>
+                    </div>
+                    <div class="funkyradio-warning">
+                        <input type="checkbox" name="checkbox" id="checkbox5"/>
+                        <label for="checkbox5">Quality Investing</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" name="checkbox" id="checkbox6"/>
+                        <label for="checkbox6">Value Investing</label>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+              <p class="mb-0 text-right">Place Holder<br>
+                  place holder<br>
+                  place holder
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">Copyright &copy; Your Website 2018</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+</html>
