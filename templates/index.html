@@ -20,7 +20,32 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/business-casual.min.css' %}" rel="stylesheet">
       <link href="{% static 'css/checkbox.css' %}" rel="stylesheet">
+<script>
+     $(document).ready(function () {
+   $("input[name='checkbox']").change(function () {
+      var maxAllowed = 2;
+      var cnt = $("input[name='checkbox']:checked").length;
+      if (cnt > maxAllowed)
+      {
+         $(this).prop("checked", "");
+         alert('Select maximum ' + maxAllowed + ' Levels!');
+     }
+  });
+});
 
+     function validateForm() {
+    var x = document.forms["myform"]["price"].value;
+    var cnt = $("input[name='checkbox']:checked").length;
+    if (x == "") {
+        alert("Investment amount can't be blank");
+        return false;
+    }
+    if (cnt == 0){
+        alert("Please choose at least ONE investment strategy");
+        return false;
+    }
+}
+</script>
   </head>
 
   <body background="{% static 'image/bg.jpg'%}">
@@ -74,16 +99,16 @@
       </div>
     </section>
 
-
-      <div class="container" style="background-color:rgba(69,121,178, 0.9);padding-top: 5rem;padding-bottom: 5rem;">
+    <section class="page-section" style="background-color:rgba(43,68,95, 0.9);padding-top: 5rem;padding-bottom: 5rem;">
+      <div class="container">
         <div class="row">
           <div class="col-xl-8 mx-auto">
             <div class="cta-inner text-left rounded" style="position: relative;padding: 3rem;margin: 0.5rem;background-color: rgba(255, 255, 255, 0.85);">
               <h2 class="section-heading mb-4">
                 <span class="section-heading-upper">Dollar amount to invest in USD (Minimum is $5000 USD)</span>
               </h2>
-
-                <input class="form-control" type="text" placeholder="Minimum is $5000 USD">
+                <form name="myform" onsubmit="return validateForm()">
+                <input name="price" class="form-control" type="text" placeholder="Minimum is $5000 USD">
 
 
 
@@ -127,8 +152,10 @@
 {#                </div>#}
 {##}
 {#                </div>#}
-
-
+                <br>
+                <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Pick one or two investment strategies</span>
+              </h2>
                 <div class="funkyradio">
                     <div class="funkyradio-primary">
                         <input type="checkbox" name="checkbox" id="checkbox2"/>
@@ -160,14 +187,15 @@
 
 
 
-              <p class="mb-0 text-right">Place Holder<br>
-                  place holder<br>
-                  place holder
-              </p>
+
+                    <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+                </form>
+                <p></p>
             </div>
           </div>
         </div>
       </div>
+        </section>
 
     <footer class="footer text-faded text-center py-5">
       <div class="container">
