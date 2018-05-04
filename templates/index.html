@@ -22,9 +22,9 @@
       <link href="{% static 'css/checkbox.css' %}" rel="stylesheet">
 <script>
      $(document).ready(function () {
-   $("input[name='checkbox']").change(function () {
+   $("input[type='checkbox']").change(function () {
       var maxAllowed = 2;
-      var cnt = $("input[name='checkbox']:checked").length;
+      var cnt = $("input[type='checkbox']:checked").length;
       if (cnt > maxAllowed)
       {
          $(this).prop("checked", "");
@@ -35,7 +35,7 @@
 
      function validateForm() {
     var x = document.forms["myform"]["price"].value;
-    var cnt = $("input[name='checkbox']:checked").length;
+    var cnt = $("input[type='checkbox']:checked").length;
     if (x == "") {
         alert("Investment amount can't be blank");
         return false;
@@ -55,8 +55,8 @@
   <body background="{% static 'image/bg.jpg'%}">
 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
-      <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-      <span class="site-heading-lower">Business Casual</span>
+      <span class="site-heading-upper text-primary mb-3">A Free Stock Portfolio Suggestion Engine</span>
+      <span class="site-heading-lower">Stock Calculator</span>
     </h1>
 
     <!-- Navigation -->
@@ -77,7 +77,7 @@
               <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/about">About</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/result">Store</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/result">Report</a>
             </li>
           </ul>
         </div>
@@ -90,13 +90,13 @@
           <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'image/intronew.jpg' %}" alt="">
           <div class="intro-text left-0 text-center bg-faded p-5 rounded">
             <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Fresh Coffee</span>
-              <span class="section-heading-lower">Worth Drinking</span>
+              <span class="section-heading-upper">Great WebApp</span>
+              <span class="section-heading-lower">As your stock advisor</span>
             </h2>
-            <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!
+            <p class="mb-3">You only need to tell us the dollar amounts you plan to invest. And the investment strategies that you're interested with. Then it's our job to produce you a profound report of suggestions of how to spend your Money!
             </p>
             <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl" href="#">Visit Us Today!</a>
+              <a class="btn btn-primary btn-xl" href="http://localhost:8000/about">Introduce Us!</a>
             </div>
           </div>
         </div>
@@ -111,11 +111,20 @@
               <h2 class="section-heading mb-4">
                 <span class="section-heading-upper">Dollar amount to invest in USD (Minimum is $5000 USD)</span>
               </h2>
-                <form name="myform" onsubmit="return validateForm()">
+                <form name="myform" onsubmit="return validateForm()" method="post" action="submit/">
+                    {% csrf_token %}
                 <input name="price" class="form-control" type="text" placeholder="Minimum is $5000 USD">
 
-
-
+{##}
+{#User will:#}
+{##}
+{#Input dollar amount to invest in USD (Minimum is $5000 USD)#}
+{#Pick one or two investment strategies:#}
+{#Ethical Investing#}
+{#Growth Investing#}
+{#Index Investing#}
+{#Quality Investing#}
+{#Value Investing#}
 
 
 
@@ -162,23 +171,23 @@
               </h2>
                 <div class="funkyradio">
                     <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox2"/>
+                        <input type="checkbox" name="checkbox1" id="checkbox2"/>
                         <label for="checkbox2">Ethical Investing</label>
                     </div>
                     <div class="funkyradio-success">
-                        <input type="checkbox" name="checkbox" id="checkbox3"/>
+                        <input type="checkbox" name="checkbox2" id="checkbox3"/>
                         <label for="checkbox3">Growth Investing</label>
                     </div>
                     <div class="funkyradio-danger">
-                        <input type="checkbox" name="checkbox" id="checkbox4"/>
+                        <input type="checkbox" name="checkbox3" id="checkbox4"/>
                         <label for="checkbox4">Index Investing</label>
                     </div>
                     <div class="funkyradio-warning">
-                        <input type="checkbox" name="checkbox" id="checkbox5"/>
+                        <input type="checkbox" name="checkbox4" id="checkbox5"/>
                         <label for="checkbox5">Quality Investing</label>
                     </div>
                     <div class="funkyradio-info">
-                        <input type="checkbox" name="checkbox" id="checkbox6"/>
+                        <input type="checkbox" name="checkbox5" id="checkbox6"/>
                         <label for="checkbox6">Value Investing</label>
                     </div>
                 </div>
