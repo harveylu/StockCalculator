@@ -40,6 +40,10 @@
         alert("Investment amount can't be blank");
         return false;
     }
+    if (isNaN(x)){
+        alert("Investment amount can only be Number");
+        return false;
+    }
     if (cnt == 0){
         alert("Please choose at least ONE investment strategy");
         return false;
