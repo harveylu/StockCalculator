@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import json
+import os
+from myproject.settings import PROJECT_ROOT
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -12,6 +15,17 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def graph(request):
+    json_data = open(os.path.join(PROJECT_ROOT, '../static/project_result.json'))
+    print type(json_data)
+    data1 = json.load(json_data)
+    print type(data1)
+    # data2 = json.dumps(json_data)
+    # print type(data2)
+    json_data.close()
+    return render(request, 'graph.html', {'result': data1})
 
 
 def result(request):
@@ -51,7 +65,14 @@ def submit(request):
         print request.POST.get('checkbox3')
         print request.POST.get('checkbox4')
         print request.POST.get('checkbox5')
-        return render(request, 'result.html', {'result': testing})
+        json_data = open(os.path.join(PROJECT_ROOT, '../static/project_result.json'))
+        print type(json_data)
+        data1 = json.load(json_data)
+        print type(data1)
+        # data2 = json.dumps(json_data)
+        # print type(data2)
+        json_data.close()
+        return render(request, 'result.html', {'result': data1})
 
 
 def assignbool(val):
