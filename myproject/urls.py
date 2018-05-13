@@ -23,6 +23,8 @@ from boards import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^admin/', admin.site.urls),
+    url(r'^graph/', views.graph, name='graph'),
     url(r'^about/', views.about, name='about'),
     url(r'^result/', views.result, name='result'),
+    url(r'^submit/', views.submit, name='submit'),
 ]

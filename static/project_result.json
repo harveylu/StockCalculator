@@ -1,0 +1,200 @@
+{
+  "error": "none",
+  "totalInvestment": 5000,
+  "actualInvestment": 4858.72,
+  "remainingBalance": 141.28,
+  "investmentStrategies": [
+    "Ethical",
+    "Growth"
+  ],
+  "suggestedStocks": [
+    {
+      "symbol": "AAPL",
+      "companyName": "Apple Inc.",
+      "primaryExchange": "Nasdaq Global Select",
+      "sector": "Technology",
+      "calculationPrice": "close",
+      "open": 178.17,
+      "close": 183.83,
+      "high": 184.25,
+      "low": 178.17,
+      "latestPrice": 183.83,
+      "latestSource": "Close",
+      "latestTime": "May 4, 2018",
+      "latestUpdate": 1525464000315,
+      "previousClose": 176.89,
+      "change": 6.94,
+      "changePercent": 0.03923,
+      "investment": {
+        "amount": 2573.62,
+        "share": 14
+      },
+      "history": [
+        {
+          "date": "2018-04-30",
+          "open": 162.1302,
+          "high": 167.26,
+          "low": 161.84,
+          "close": 165.26,
+          "volume": 42427424,
+          "unadjustedVolume": 42427424,
+          "change": 2.94,
+          "changePercent": 1.811,
+          "vwap": 165.5499,
+          "label": "Apr 30",
+          "changeOverTime": -0.037002505681487
+        },
+        {
+          "date": "2018-05-01",
+          "open": 166.4102,
+          "high": 169.2,
+          "low": 165.27,
+          "close": 169.1,
+          "volume": 53569376,
+          "unadjustedVolume": 53569376,
+          "change": 3.84,
+          "changePercent": 2.324,
+          "vwap": 167.6356,
+          "label": "May 1",
+          "changeOverTime": -0.014626187285123
+        },
+        {
+          "date": "2018-05-02",
+          "open": 175.225,
+          "high": 177.75,
+          "low": 173.8,
+          "close": 176.57,
+          "volume": 66539371,
+          "unadjustedVolume": 66539371,
+          "change": 7.47,
+          "changePercent": 4.418,
+          "vwap": 176.0928,
+          "label": "May 2",
+          "changeOverTime": 0.028902744595303
+        },
+        {
+          "date": "2018-05-03",
+          "open": 175.88,
+          "high": 177.5,
+          "low": 174.4411,
+          "close": 176.89,
+          "volume": 34068180,
+          "unadjustedVolume": 34068180,
+          "change": 0.32,
+          "changePercent": 0.181,
+          "vwap": 176.08,
+          "label": "May 3",
+          "changeOverTime": 0.030767437795
+        },
+        {
+          "date": "2018-05-04",
+          "open": 178.25,
+          "high": 184.25,
+          "low": 178.17,
+          "close": 183.83,
+          "volume": 56201317,
+          "unadjustedVolume": 56201317,
+          "change": 6.94,
+          "changePercent": 3.923,
+          "vwap": 182.5667,
+          "label": "May 4",
+          "changeOverTime": 0.071207971563429
+        }
+      ]
+    },
+    {
+      "symbol": "ADBE",
+      "companyName": "Adobe Systems Incorporated",
+      "primaryExchange": "Nasdaq Global Select",
+      "sector": "Technology",
+      "calculationPrice": "close",
+      "open": 223.89,
+      "close": 228.51,
+      "high": 229.39,
+      "low": 223.39,
+      "latestPrice": 228.51,
+      "latestSource": "Close",
+      "latestTime": "May 4, 2018",
+      "latestUpdate": 1525464000472,
+      "previousClose": 226.05,
+      "change": 2.46,
+      "changePercent": 0.01088,
+      "investment": {
+        "amount": 2285.1,
+        "share": 10
+      },
+      "history": [
+        {
+          "date": "2018-04-30",
+          "open": 223.27,
+          "high": 224.14,
+          "low": 219.538,
+          "close": 221.6,
+          "volume": 1766330,
+          "unadjustedVolume": 1766330,
+          "change": -0.3,
+          "changePercent": -0.135,
+          "vwap": 222.1311,
+          "label": "Apr 30",
+          "changeOverTime": -0.015329926682959417
+        },
+        {
+          "date": "2018-05-01",
+          "open": 220.77,
+          "high": 224.49,
+          "low": 219.38,
+          "close": 224.08,
+          "volume": 1792948,
+          "unadjustedVolume": 1792948,
+          "change": 2.48,
+          "changePercent": 1.119,
+          "vwap": 222.1945,
+          "label": "May 1",
+          "changeOverTime": -0.004310153299266825
+        },
+        {
+          "date": "2018-05-02",
+          "open": 224.3,
+          "high": 224.5,
+          "low": 220.55,
+          "close": 221.1,
+          "volume": 2202895,
+          "unadjustedVolume": 2202895,
+          "change": -2.98,
+          "changePercent": -1.33,
+          "vwap": 222.1318,
+          "label": "May 2",
+          "changeOverTime": -0.017551655187736135
+        },
+        {
+          "date": "2018-05-03",
+          "open": 220.01,
+          "high": 227.37,
+          "low": 218.7396,
+          "close": 226.05,
+          "volume": 2507925,
+          "unadjustedVolume": 2507925,
+          "change": 4.95,
+          "changePercent": 2.239,
+          "vwap": 223.7628,
+          "label": "May 3",
+          "changeOverTime": 0.004443457009553432
+        },
+        {
+          "date": "2018-05-04",
+          "open": 223.89,
+          "high": 229.39,
+          "low": 223.39,
+          "close": 228.51,
+          "volume": 1663737,
+          "unadjustedVolume": 1663737,
+          "change": 2.46,
+          "changePercent": 1.088,
+          "vwap": 227.3564,
+          "label": "May 4",
+          "changeOverTime": 0.015374361253054785
+        }
+      ]
+    }
+  ]
+}

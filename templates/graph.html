@@ -1,0 +1,85 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+{#      console.log({{ result.error }});#}
+        data.addColumn('string', 'Day');
+        {% for item in result.suggestedStocks %}
+        data.addColumn('number', '{{ item.symbol }}');
+        {% endfor %}
+{#      data.addColumn('number', 'Day');#}
+{#      data.addColumn('number', 'Galaxy');#}
+{#      data.addColumn('number', 'The Avengers');#}
+    var price_data = [[],[],[],[],[]];
+    var item_index = -1;
+    var date_index;
+        {% for item in result.suggestedStocks %}
+            item_index = item_index + 1;
+            date_index = 0;
+            {% for date in item.history %}
+                price_data[date_index][0] = '{{ date.label }}';
+                price_data[date_index][item_index+1] = {{ date.close }};
+                date_index += 1;
+        {% endfor %}
+        {% endfor %}
+
+    console.log(price_data);
+{#      data.addRows([#}
+{#        [1,  37.8, 80.8, 41.8],#}
+{#        [2,  30.9, 69.5, 32.4],#}
+{#        [3,  25.4,   57, 25.7],#}
+{#        [4,  11.7, 18.8, 10.5],#}
+{#        [5,  11.9, 17.6, 10.4],#}
+{#        [6,   8.8, 13.6,  7.7],#}
+{#        [7,   7.6, 12.3,  9.6],#}
+{#        [8,  12.3, 29.2, 10.6],#}
+{#        [9,  16.9, 42.9, 14.8],#}
+{#        [10, 12.8, 30.9, 11.6],#}
+{#        [11,  5.3,  7.9,  4.7],#}
+{#        [12,  6.6,  8.4,  5.2],#}
+{#        [13,  4.8,  6.3,  3.6],#}
+{#        [14,  4.2,  6.2,  3.4]#}
+{#      ]);#}
+    data.addRows(price_data);
+{##}
+{#      var options = {#}
+{#          title: 'Company Performance',#}
+{#          curveType: 'function',#}
+{#          legend: { position: 'bottom' }#}
+{#        };#}
+
+{#        var options = {#}
+{#        chart: {#}
+{#          title: 'Box Office Earnings in First Two Weeks of Opening',#}
+{#          subtitle: 'in millions of dollars (USD)',#}
+{#          legend: { position: 'bottom' }#}
+{#        },#}
+{#        width: 900,#}
+{#        height: 500,#}
+{#      };#}
+
+     var options = {
+          title: 'Stock History Price (US Dollars $)',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
