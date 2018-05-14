@@ -97,6 +97,51 @@
     }
     </script>
 
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+          var share_data = [['Symbol', 'Share']];
+          var price_data = [['Symbol', 'Money Spent']];
+          {% for item in result.suggestedStocks %}
+                share_data.push(['{{ item.symbol }}', {{ item.investment.share }}]);
+                price_data.push(['{{ item.symbol }}', {{ item.investment.amount }}]);
+          {% endfor %}
+
+
+{#        var data = google.visualization.arrayToDataTable([#}
+{#          ['Task', 'Hours per Day'],#}
+{#          ['Work',     11],#}
+{#          ['Eat',      2],#}
+{#          ['Commute',  2],#}
+{#          ['Watch TV', 2],#}
+{#          ['Sleep',    7]#}
+{#        ]);#}
+
+      console.log(share_data);
+
+      var data = google.visualization.arrayToDataTable(share_data);
+
+        var options = {
+          title: 'Share per Stock'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+
+        var data_price = google.visualization.arrayToDataTable(price_data);
+        var options_price = {
+          title: 'Amount per Stock ($)'
+        };
+        var chart_price = new google.visualization.PieChart(document.getElementById('piechart-price'));
+        chart_price.draw(data_price, options_price);
+      }
+
+
+    </script>
+
 
 
 
@@ -127,7 +172,7 @@
               <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/about">About</a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="http://localhost:8000/result">Report</a>
+              <a class="nav-link text-uppercase text-expanded disabled" href="#">Report</a>
             </li>
           </ul>
         </div>
@@ -179,21 +224,14 @@
 {#                  <span class="ml-auto">9:00 AM to 5:00 PM</span>#}
 {#                </li>#}
               </ul>
-                <div id="curve_chart" style="width: 720px; height: 500px"></div>
-              <p class="address mb-5">
+            <p class="address mb-5">
                 <em>
-                  <strong>1116 Orchard Street</strong>
+                  <strong>For more Detailed information, Scroll Down!</strong>
                   <br>
-                  Golden Valley, Minnesota
                 </em>
               </p>
-              <p class="mb-0">
-                <small>
-                  <em>Call Anytime</em>
-                </small>
-                <br>
-                (317) 585-8468
-              </p>
+
+
             </div>
           </div>
         </div>
@@ -208,14 +246,34 @@
             <div class="col-xl-9 col-lg-10 mx-auto">
               <div class="bg-faded rounded p-5">
                 <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                  <span class="section-heading-lower">About Our Cafe</span>
+                  <span class="section-heading-upper">Check Customized Suggestions for You</span>
+                  <span class="section-heading-lower">Detailed Investment Info</span>
                 </h2>
-                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-                <p class="mb-0">We guarantee that you will fall in
-                  <em>lust</em>
-                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
-                 <p>{{ result.stock }}  {{ result.checkbox1 }} {{ result.checkbox2 }} {{ result.checkbox3 }} {{ result.checkbox4 }} {{ result.checkbox5 }}</p>
+                <p>The following charts displays the suggested investment method for you. They demonstrate the share/amount per stock and the history price trending graph for your reference.
+                </p><p class="mb-0">The suggested method generated based on the
+                investment strategies you chose. If you decide to try other strategies, just simply resubmit your desired strategies. We hope you great success and we are honored to serve you!</p>
+{#                <p class="mb-0">We guarantee that you will fall in#}
+{#                  <em>lust</em>#}
+{#                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>#}
+{#                 <p>{{ result.stock }}  {{ result.checkbox1 }} {{ result.checkbox2 }} {{ result.checkbox3 }} {{ result.checkbox4 }} {{ result.checkbox5 }}</p>#}
+                  <br><p class="address mb-5" float="left"><strong>Share per Stock Chart</strong> </p>
+            <div id="piechart" style="width: 720px; height: 400px;"></div>
+                  <br><p class="address mb-5" float="left"><strong>Amount per Stock Chart</strong> </p>
+            <div id="piechart-price" style="width: 720px; height: 400px;"></div>
+            <br><br>
+                  <p class="address mb-5"><strong>History Price Trend for selected stocks</strong></p>
+                <div id="curve_chart" style="width: 720px; height: 500px"></div>
+                  <p class="address mb-5">
+                <em>
+                  <br>
+                  Again! We wish you great success in your investment and we hope to serve you right!
+                </em>
+              </p>
+              <p class="mb-0">
+
+                Sincerely,<br>
+                  Copyright &copy; StockCalculator 2018
+              </p>
               </div>
             </div>
           </div>
