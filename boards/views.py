@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 import json
 import os
 from myproject.settings import PROJECT_ROOT
+import stockcalculate
 
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 # Create your views here.
@@ -33,7 +33,7 @@ def result(request):
     #     "stock": "aapl",
     #     "strategy": "Ethical Investing "
     # }
-    return render(request, 'result.html')
+    return render(request, 'report-error.html',{'result': 'Submit a new set of data to get your report!'})
 
 
 def submit(request):
@@ -65,14 +65,22 @@ def submit(request):
         print request.POST.get('checkbox3')
         print request.POST.get('checkbox4')
         print request.POST.get('checkbox5')
-        json_data = open(os.path.join(PROJECT_ROOT, '../static/project_result.json'))
-        print type(json_data)
-        data1 = json.load(json_data)
-        print type(data1)
-        # data2 = json.dumps(json_data)
-        # print type(data2)
-        json_data.close()
-        return render(request, 'result.html', {'result': data1})
+        json_result = stockcalculate.investment_with_strategy(float(request.POST.get('price')), checkbox1, checkbox2, checkbox3, checkbox4, checkbox5)
+        # json_data = open(os.path.join(PROJECT_ROOT, '../static/project_result.json'))
+        # data1 = json.load(json_data)
+        # json_data.close()
+        if "error" in json_result:
+            print "Error detected"
+            # print data1
+            return render(request, 'report-error.html', {'result': json_result['error']})
+        else:
+            # print type(json_data)
+            print type(json_result)
+            # print(json.dumps(json_result, indent=2, sort_keys=False))
+            # print "Type of result is" + type(json_result)
+            # data2 = json.dumps(json_data)
+            # print type(data2)
+            return render(request, 'result.html', {'result': json_result})
 
 
 def assignbool(val):

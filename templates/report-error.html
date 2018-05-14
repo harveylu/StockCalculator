@@ -21,41 +21,6 @@
     <link href="{% static 'css/business-casual.min.css' %}" rel="stylesheet">
 
        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <script type="text/javascript">
-      google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Symbol');
-        data.addColumn('string', 'Name');
-        data.addColumn('number', 'Share');
-        data.addColumn('number', 'Price($)');
-        data.addColumn('number', 'Amount($)');
-        var table_info = [];
-        var stock_info;
-         {% for item in result.suggestedStocks %}
-             stock_info = [];
-         stock_info[0] = '{{ item.symbol }}';
-         stock_info[1] = '{{ item.companyName }}';
-         stock_info[2] = {{ item.investment.share }};
-         stock_info[3] = {{ item.close }};
-         stock_info[4] = {{ item.investment.amount }};
-         table_info.push(stock_info);
-        {% endfor %}
-
-
-
-        data.addRows(table_info);
-        console.log(table_info);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-      }
-    </script>
-
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -126,7 +91,7 @@
           legend: { position: 'bottom' },
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart' + {% str(item) %}));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
         chart.draw(data, options);
     }
@@ -214,66 +179,6 @@
       </div>
     </nav>
 
-    <section class="page-section cta">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-5">
-                <span class="section-heading-upper">Stock Calculator</span>
-                <span class="section-heading-lower">Report Generated!</span>
-              </h2>
-              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Total Investment
-                  <span class="ml-auto">{{ result.totalInvestment }}</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Actual Investment
-                  <span class="ml-auto">{{ result.actualInvestment }}</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Remaining Balance
-                  <span class="ml-auto">{{ result.remainingBalance }}</span>
-                </li>
-                <li class="list-unstyled-item list-hours-item d-flex">
-                  Strategies :
-                    {% for item in result.investmentStrategies %}
-                        <span class="ml-auto">{{ item }}</span><br></li>
-                        </li>
-                        <li class="list-unstyled-item list-hours-item d-flex">
-                    {% endfor %}
-                  Suggested Stocks :
-                    </li>
-                    {% for item in result.suggestedStocks %}
-                        <li class="list-unstyled-item list-hours-item d-flex">
-                  <span class="ml-auto">{{ item.symbol }}:&nbsp&nbsp&nbsp{{ item.companyName }}</span><br>
-                         </li>
-                    {% endfor %}
-{#                <li class="list-unstyled-item list-hours-item d-flex">#}
-{#                  Friday#}
-{#                  <span class="ml-auto">7:00 AM to 8:00 PM</span>#}
-{#                </li>#}
-{#                <li class="list-unstyled-item list-hours-item d-flex">#}
-{#                  Saturday#}
-{#                  <span class="ml-auto">9:00 AM to 5:00 PM</span>#}
-{#                </li>#}
-              </ul>
-            <div id="table_div"></div>
-            <p class="address mb-5">
-                <em>
-                  <strong>For more Detailed information, Scroll Down!</strong>
-                  <br>
-                </em>
-              </p>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="page-section about-heading">
       <div class="container">
         <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'image/about.jpg' %}" alt="">
@@ -282,29 +187,10 @@
             <div class="col-xl-9 col-lg-10 mx-auto">
               <div class="bg-faded rounded p-5">
                 <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper">Check Customized Suggestions for You</span>
-                  <span class="section-heading-lower">Detailed Investment Info</span>
+                  <span class="section-heading-upper">ERROR!</span>
+                    <span class="section-heading-upper"><strong>{{ result }}</strong></span>
                 </h2>
-                <p>The following charts displays the suggested investment method for you. They demonstrate the share/amount per stock and the history price trending graph for your reference.
-                </p><p class="mb-0">The suggested method generated based on the
-                investment strategies you chose. If you decide to try other strategies, just simply resubmit your desired strategies. We hope you great success and we are honored to serve you!</p>
-{#                <p class="mb-0">We guarantee that you will fall in#}
-{#                  <em>lust</em>#}
-{#                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>#}
-{#                 <p>{{ result.stock }}  {{ result.checkbox1 }} {{ result.checkbox2 }} {{ result.checkbox3 }} {{ result.checkbox4 }} {{ result.checkbox5 }}</p>#}
-                  <br><p class="address mb-5" float="left"><strong>Share per Stock Chart</strong> </p>
-            <div id="piechart" style="width: 720px; height: 400px;"></div>
-                  <br><p class="address mb-5" float="left"><strong>Amount per Stock Chart</strong> </p>
-            <div id="piechart-price" style="width: 720px; height: 400px;"></div>
-            <br><br>
-                  <p class="address mb-5"><strong>History Price Trend for selected stocks</strong></p>
-                <div id="curve_chart" style="width: 720px; height: 500px"></div>
-                  <p class="address mb-5">
-                <em>
-                  <br>
-                  Again! We wish you great success in your investment and we hope to serve you right!
-                </em>
-              </p>
+
               <p class="mb-0">
 
                 Sincerely,<br>

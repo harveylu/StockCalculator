@@ -1,5 +1,5 @@
 {
-  "error": "none",
+  "error": "Something is wrong!",
   "totalInvestment": 5000,
   "actualInvestment": 4858.72,
   "remainingBalance": 141.28,
