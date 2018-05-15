@@ -82,8 +82,8 @@ def get_recommend_stock(strategy):
     if len(strategy) == 1:
         selections = select_random_stocks(stock_profiles.get(strategy[0]), 4)
     elif len(strategy) == 2:
-        selections = select_random_stocks(stock_profiles.get(strategy[0]), 2)
-        selections.extend(select_random_stocks(stock_profiles.get(strategy[1]), 2))
+        selections = select_random_stocks(stock_profiles.get(strategy[0]), 3)
+        selections.extend(select_random_stocks(stock_profiles.get(strategy[1]), 3))
 
     return {"value": selections}
 

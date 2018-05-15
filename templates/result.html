@@ -30,18 +30,22 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Symbol');
         data.addColumn('string', 'Name');
-        data.addColumn('number', 'Share');
-        data.addColumn('number', 'Price($)');
-        data.addColumn('number', 'Amount($)');
+        data.addColumn('string', 'Share');
+        data.addColumn('string', 'Price($)');
+        data.addColumn('string', 'Amount($)');
         var table_info = [];
         var stock_info;
          {% for item in result.suggestedStocks %}
              stock_info = [];
          stock_info[0] = '{{ item.symbol }}';
          stock_info[1] = '{{ item.companyName }}';
-         stock_info[2] = {{ item.investment.share }};
-         stock_info[3] = {{ item.close }};
-         stock_info[4] = {{ item.investment.amount }};
+         stock_info[2] = '{{ item.investment.share }}';
+         var temp_data = {{ item.close }};
+         stock_info[3] = temp_data.toFixed(2);
+         console.log(stock_info[3]);
+         var temp_data = {{ item.investment.amount }};
+         stock_info[4] = temp_data.toFixed(2);
+         console.log(stock_info[4]);
          table_info.push(stock_info);
         {% endfor %}
 
@@ -72,6 +76,7 @@
               {% for date in item.history %}
                   price_data[date_index][0] = '{{ date.label }}';
                 price_data[date_index][1] = {{ date.close }};
+                price_data[date_index][1].toFixed(2);
                 date_index += 1;
                   {% endfor %}
 
@@ -176,7 +181,9 @@
           var price_data = [['Symbol', 'Money Spent']];
           {% for item in result.suggestedStocks %}
                 share_data.push(['{{ item.symbol }}', {{ item.investment.share }}]);
-                price_data.push(['{{ item.symbol }}', {{ item.investment.amount }}]);
+                var temp = ['{{ item.symbol }}', {{ item.investment.amount }}];
+                temp[1].toFixed(2);
+                price_data.push(temp);
           {% endfor %}
 
 
