@@ -25,7 +25,7 @@ SECRET_KEY = 'z(+6&-8+tg))os4y^7y2v*4i&6t3=5=j5u$-!t)=f+m@tr8n_t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'calm-hamlet-66103.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'myproject.urls'
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 TEMPLATES = [
