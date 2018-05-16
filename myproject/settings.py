@@ -59,7 +59,9 @@ ROOT_URLCONF = 'myproject.urls'
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+#This has to be project_root instead of base_dir
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
 STATIC_URL = '/static/'
 
 TEMPLATES = [
