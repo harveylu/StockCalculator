@@ -88,7 +88,7 @@
         };
             var div = document.createElement("div");
             div.id = '{{ item.symbol }}';
-            div.style.width = '720px';
+            div.style.width = '100%';
             div.style.height = '500px';
         var parentDiv = document.getElementById("chart_add").parentNode;
         var refNode = document.getElementById("chart_add");
@@ -335,9 +335,9 @@
 {#                  with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>#}
 {#                 <p>{{ result.stock }}  {{ result.checkbox1 }} {{ result.checkbox2 }} {{ result.checkbox3 }} {{ result.checkbox4 }} {{ result.checkbox5 }}</p>#}
                   <br><p class="address mb-5" float="left"><strong>Share per Stock Chart</strong> </p>
-            <div id="piechart" style="width: 720px; height: 400px;"></div>
+            <div id="piechart" style="width: 100%; height: 400px;"></div>
                   <br><p class="address mb-5" float="left"><strong>Amount per Stock Chart</strong> </p>
-            <div id="piechart-price" style="width: 720px; height: 400px;"></div>
+            <div id="piechart-price" style="width: 100%; height: 400px;"></div>
             <br><br>
                   <p class="address mb-5"><strong>History Price Trend for selected stocks</strong></p>
 {#                <div id="curve_chart" style="width: 720px; height: 500px"></div>#}
