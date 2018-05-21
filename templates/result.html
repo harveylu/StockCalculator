@@ -39,7 +39,8 @@
              stock_info = [];
          stock_info[0] = '{{ item.symbol }}';
          stock_info[1] = '{{ item.companyName }}';
-         stock_info[2] = '{{ item.investment.share }}';
+         var temp_int = Math.floor( {{ item.investment.share }} );
+         stock_info[2] = temp_int.toString();
          var temp_data = {{ item.close }};
          stock_info[3] = temp_data.toFixed(2);
          console.log(stock_info[3]);
