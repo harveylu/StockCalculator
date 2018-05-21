@@ -134,6 +134,7 @@ def calculate_investment(amount, strategy, quote):
     quote = map(lambda_format_quote, quote.values())
     quote.sort(key=lambda x: x.get("latestPrice"), reverse=True)
     suggestedStocks = []
+    portfolioValueHistory = []
 
     for index, stock in enumerate(quote):
         price = stock.get("latestPrice")
@@ -144,9 +145,36 @@ def calculate_investment(amount, strategy, quote):
                                "amount": buyAmount}
         suggestedStocks.append(stock)
 
+        history = stock.get("history")
+        if history is not None:
+            for index, historyValue in enumerate(history):
+                date = historyValue.get("date")
+                closePrice = historyValue.get("close")
+                if closePrice is None:
+                    continue
+
+                value = closePrice * share
+
+                try:
+                    existing = portfolioValueHistory[index]
+                    existingDate = existing.get("date")
+                    if existingDate is None:
+                        raise IndexError
+                    elif existingDate != date:
+                        raise IndexError
+
+                    existing["portfolioValue"] = existing.get("portfolioValue") + value
+                    portfolioValueHistory[index] = existing
+                except IndexError:
+                    portfolioValueHistory.append({
+                        "date": date,
+                        "portfolioValue": value
+                    })
+
     result["suggestedStocks"] = suggestedStocks
     result["actualInvestment"] = amount - remainingBalance
     result["remainingBalance"] = remainingBalance
+    result["portfolioValueHistory"] = portfolioValueHistory
 
     return result
 
