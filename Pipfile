@@ -6,7 +6,7 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-django = "==1.11.13"
+django = "==1.11.29"
 requests = "*"
 gunicorn = "*"
 django-heroku = "*"
